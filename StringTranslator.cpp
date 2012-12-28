@@ -79,6 +79,11 @@ std::wstring StringTranslator::decode(const std::wstring &str)
 			continue;
 		}
 		int code = _wtoi(str.substr(i+1,m_seqLenght).data());
+		if(code==m_emptyStr)
+		{
+			i+=m_seqLenght+1;
+			break;
+		}
 		for(size_t j=0;j<table.size();++j)
 		{
 			if(table[j].second==code)
